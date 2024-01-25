@@ -1,9 +1,12 @@
+version: '3.9'
+
 services:
-  postgres:
+  postgres-db:
     image: 'postgres:latest'
+    restart: always
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
-    ports:
-      - '5432'
+      POSTGRES_USER: development
+      POSTGRES_PASSWORD: docker123
+      POSTGRES_DB: images
+    ports: 
+     - '5434:5432'
