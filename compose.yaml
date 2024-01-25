@@ -10,3 +10,19 @@ services:
       POSTGRES_DB: images
     ports: 
      - '5434:5432'
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  pgadmin: 
+   image: dpage/pgadmin4
+   restart: always
+   environment:
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: admin@password
+   ports:
+   - '15434:80'
+   depends_on:
+   - postgres-db
+
+      
+  
+     
