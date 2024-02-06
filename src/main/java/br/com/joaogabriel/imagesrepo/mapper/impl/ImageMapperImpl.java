@@ -11,7 +11,9 @@ import br.com.joaogabriel.imagesrepo.entity.Image;
 import br.com.joaogabriel.imagesrepo.enumerations.ImageExtension;
 import br.com.joaogabriel.imagesrepo.mapper.ImageMapper;
 import br.com.joaogabriel.imagesrepo.payload.request.ImagePostRequest;
+import br.com.joaogabriel.imagesrepo.payload.response.DocumentViewResponse;
 import br.com.joaogabriel.imagesrepo.payload.response.ImageResponse;
+import br.com.joaogabriel.imagesrepo.payload.response.ImageView;
 
 @Service
 public class ImageMapperImpl implements ImageMapper {
@@ -34,6 +36,17 @@ public class ImageMapperImpl implements ImageMapper {
 				ImageExtension.valueOf(MediaType.valueOf(file.getContentType())), 
 				tags, file.getBytes());
 		
+	}
+
+	@Override
+	public DocumentViewResponse toDocumentViewResponse(Image image) {
+		return new DocumentViewResponse(image.getFile(), image.getSize(), image.getName(), image.getExtension(), 
+				 image.getId());
+	}
+
+	@Override
+	public ImageView toImageView(Image image) {
+		return new ImageView(image.getSize(), image.getName(), image.getExtension(), image.getId(), "", image.getUploadIn());
 	}
 
 }

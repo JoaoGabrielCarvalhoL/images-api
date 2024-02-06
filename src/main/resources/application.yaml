@@ -3,7 +3,8 @@ spring:
     url: jdbc://postgresql://127.0.0.1:5434/images
     username: development
     password: docker123
-    
+    hikari:
+      auto-commit: false  
   jpa:
     database: POSTGRESQL
     hibernate:

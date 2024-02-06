@@ -21,7 +21,6 @@ public enum ImageExtension {
 		return this.mediaType;
 	}
 	
-	
 	public static ImageExtension valueOf(MediaType mediaType) {
 		if(mediaType == null) return null;
 		return Arrays.stream(values())
