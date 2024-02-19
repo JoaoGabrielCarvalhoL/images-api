@@ -27,5 +27,6 @@ public interface ImageService {
 	DocumentViewResponse findById(UUID id);
 	
 	List<ImageView> findAll();
+	
 
 }
